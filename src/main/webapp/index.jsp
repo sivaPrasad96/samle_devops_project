@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Tomcat Deployement Successfull by using Plugin based deployement </h2>
+<h2>Tomcat Deployement Successfull by using Plugin based deployement with Poll scm </h2>
 </body>
 </html>
