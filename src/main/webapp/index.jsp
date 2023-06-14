@@ -108,7 +108,7 @@ body {
 
 <div class="header">
   <h1>FlipKart(Amazon)</h1>
-  <p>A <b>responsive</b> website created by me.</p>
+  <p>A <b>responsive</b> website created by naveen.</p>
 </div>
 
 <div class="navbar">
