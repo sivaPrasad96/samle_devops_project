@@ -73,7 +73,7 @@ span.psw {
   padding-top: 60px;
 }
 
-/* Modal Content/Box */
+/* Modal Content/box */
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
@@ -127,7 +127,7 @@ span.psw {
 </head>
 <body>
 
-<h2>Modal Login Form</h2>
+<h2>Login Page FOrm</h2>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
