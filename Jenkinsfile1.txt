@@ -1,0 +1,13 @@
+pipeline{
+    agaent any
+     environment{
+        PATH= "/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin:$PATH"
+    }
+    stages{
+        stage("Git clone form Github"){
+            steps{
+                git credentialsId: 'dfd7aeb8-9531-4837-a41a-abbb195cadb0', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
+            }
+        }
+    }    
+}
