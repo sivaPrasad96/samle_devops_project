@@ -11,5 +11,11 @@ pipeline {
                 git credentialsId: 'dfd7aeb8-9531-4837-a41a-abbb195cadb0', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
             }
         }
+
+        stage("Maven build & Sonar scan") {
+            steps {
+                sh 'mvn -f /var/lib/jenkins/workspace/citibank/pom.xml clean sonar:sonar package'
+            }
+        }
     }
 }
