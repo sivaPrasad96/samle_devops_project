@@ -11,7 +11,8 @@ pipeline {
         }
         stage("mvn build & sonar scan") {
             steps {
-                sh 'mvn -f /var/lib/jenkins/workspace/tmt_pipeline/pom.xml clean sonar:sonar package'
+                  sh 'mvn clean package'
+                //sh 'mvn -f /var/lib/jenkins/workspace/tmt_pipeline/pom.xml clean sonar:sonar package'
                 //sh "mvn -f /var/lib/jenkins/workspace/tmt_pipeline/pom.xml clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar package"
             }
         }
