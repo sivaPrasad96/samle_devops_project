@@ -13,7 +13,7 @@ pipeline {
 
         stage('Clone the GitHub') {
             steps {
-                git branch: 'main', credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
+                git branch: 'main', credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/sample_devops_project.git'
             }
         }
 
@@ -26,6 +26,14 @@ pipeline {
         stage('Test the App') {
             steps {
                 sh 'mvn test'
+            }
+        }
+
+        stage('SonarQube Analysis chk') {
+            steps {
+                withSonarQubeEnv(credentialsId: 'jenkins_sonar_token') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
     }
