@@ -13,7 +13,7 @@ pipeline {
 
         stage('Clone the GitHub') {
             steps {
-                git credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/sample_devops_project.git'
+                git branch: 'main', credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
             }
         }
 
