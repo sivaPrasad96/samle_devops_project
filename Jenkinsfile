@@ -32,15 +32,6 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis chk') {
-            steps {
-                echo 'Running SonarQube analysis...'
-                script {
-                    withSonarQubeEnv(credentialsId: 'jenkins_sonar_token') {
-                        sh 'mvn sonar:sonar'
-                    }
-                }
-            }
-        }
+        
     }
 }
