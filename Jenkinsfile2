@@ -9,6 +9,11 @@ pipeline {
                 git branch: 'main', credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
             }
         }
+        stage("maven build & sonar scan"){
+            steps{
+                sh 'mvn -f /var/lib/jenkins/workspace/mvn_bulids/pom.xml clean sonar:sonar package'
+            }
+        }
         
         
     }
