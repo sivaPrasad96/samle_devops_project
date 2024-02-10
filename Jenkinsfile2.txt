@@ -6,41 +6,10 @@ pipeline {
     stages {
         stage("Clone the SCM") {
             steps {
-                git credentialsId: 'c30962e4-b0f4-465f-a2e0-61bcbc0e9297', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
+                git branch: 'main', credentialsId: 'Github_ID', url: 'https://github.com/sivaPrasad96/samlpe_devops_project.git'
             }
         }
-        stage("mvn build & sonar scan") {
-            steps {
-                  sh 'mvn clean package'
-                //sh 'mvn -f /var/lib/jenkins/workspace/tmt_pipeline/pom.xml clean sonar:sonar package'
-                //sh "mvn -f /var/lib/jenkins/workspace/tmt_pipeline/pom.xml clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar package"
-            }
-        }
-        stage("nexus") {
-            steps {
-                nexusArtifactUploader artifacts: [
-                    [
-                        artifactId: 'creditcard',
-                        classifier: '',
-                        file: '/var/lib/jenkins/workspace/tmt_pipeline/target/creditcard.war',
-                        type: 'war'
-                    ]
-                ],
-                credentialsId: 'nexus',
-                groupId: 'citibank',
-                nexusUrl: 'http://13.235.76.241:8081/',
-                nexusVersion: 'nexus2',
-                protocol: 'http',
-                repository: 'sample-snapshot',
-                version: '1.0-SNAPSHOT'
-            }
-        }
-        stage("deploy") {
-            steps {
-                sshagent(['tomcatID']) {
-                    sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/tmt_pipeline/target/creditcard.war ec2-user@13.126.44.2:/root/tmt/webapps/"
-                }
-            }
-        }
+        
+        
     }
 }
