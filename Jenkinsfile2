@@ -11,12 +11,19 @@ pipeline {
         }
         stage("maven build & sonar scan"){
             steps{
-                sh 'mvn -f /var/lib/jenkins/workspace/mvn_bulids/pom.xml clean sonar:sonar package'
-                 // sh 'mvn clean package'
+                //sh 'mvn -f /var/lib/jenkins/workspace/mvn_bulids/pom.xml clean sonar:sonar package'
+                 sh 'mvn clean package'
                    // sh 'mvn sonar:sonar'
             }
         }
-        
+        stage("deploy to wat in Tomcat"){
+            steps{
+                   sshagent(['Tomcat_ID']) {
+                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mvn_builds/creditcard/target/creditcard.war  root@ip-172-31-12-139:/root/tmt/webapps'
+
+                    }
+            }
+        }
         
     }
 }
