@@ -19,7 +19,9 @@ pipeline {
         stage("deploy to wat in Tomcat"){
             steps{
                    sshagent(['Tomcat_ID']) {
-                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mvn_bulids/target/creditcard.war  ec2-user@65.0.61.134:/root/tmt/webapps'
+                    //sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mvn_bulids/target/creditcard.war  ec2-user@65.0.61.134:/root/tmt/webapps'
+                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/mvn_bulids/target/creditcard.war ec2-user@65.0.61.134:/root/tmt/webapps/'
+
 
                     }
             }
